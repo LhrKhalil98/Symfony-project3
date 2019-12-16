@@ -1,0 +1,131 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArticleController!{% endblock %}
+
+{% block body %}
+ <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>Shop Category</h2>
+                            <p>Home <span>-</span> Shop Category</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb start-->
+
+    <!--================Category Product Area =================-->
+    <section class="cat_product_area section_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="left_sidebar_area">
+                        <aside class="left_widgets p_filter_widgets">
+                            <div class="l_w_title">
+                                <h3>Type</h3>
+                            </div>
+                            <div class="widgets_inner">
+                                <ul class="list">
+                                {% for type in types %}
+                                      <li>
+                                        <a href="{{ path('article_type', {'id': type.getId()}) }}">{{type.type}}</a>
+                                       
+                                    </li>
+                                {% endfor %}
+                                  
+                                
+                                </ul>
+                            </div>
+                        </aside>
+
+                        <aside class="left_widgets p_filter_widgets">
+                            <div class="l_w_title">
+                                <h3>Theme</h3>
+                            </div>
+                            <div class="widgets_inner">
+                                <ul class="list">
+                                        {% for theme in themes %}
+                                      <li>
+                                        <a href="{{ path('article_theme', {'id': theme.getId()}) }}">{{theme.theme}}</a>
+                                       
+                                    </li>
+                                {% endfor %}
+                                   
+                                </ul>
+                               
+                            </div>
+                        </aside>
+
+                        <aside class="left_widgets p_filter_widgets">
+                            <div class="l_w_title">
+                                <h3>Langue</h3>
+                            </div>
+                            <div class="widgets_inner">
+                                <ul class="list">
+                                      {% for langue in langues %}
+                                      <li>
+                                        <a href="{{ path('article_langue', {'id': langue.getId()}) }}">{{langue.langue}}</a>
+                                       
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        </aside>
+
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                   
+                    
+                              <div class="row align-items-center latest_product_inner">
+                               {% for item in articles %}
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="single_product_item">
+                                <img src="../assets/img/{{item.image}}" alt="">
+                                <div class="single_product_text">
+                                    <h4>{{item.titre}}</h4>
+                                    <h3>{{item.auteur.getAuteur()}}</h3>
+                                    <a href="{{ path('app_article', {'id': item.id}) }}" class="add_cart">See Product <i class="ti-heart"></i></a>
+                                </div>
+                            </div>
+                             </div>
+                              {% endfor %}
+                       </div>
+                   
+               
+                      
+                        <div class="col-lg-12">
+                            <div class="pageination">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-center">
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                                <i class="ti-angle-double-left"></i>
+                                            </a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                                <i class="ti-angle-double-right"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

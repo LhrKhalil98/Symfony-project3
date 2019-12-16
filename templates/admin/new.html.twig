@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+{% block header %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Admin </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{path('admin')}}">Client And Admins <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{path('articles')}}">Articles</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Auteurs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{path('admin_commande')}}">Commandes</a>
+      </li>
+    </ul>
+ 
+  </div>
+</nav>
+{% endblock %}
+{% block body %}
+
+    <h1>Ajouter Admin </h1>
+ <form method="POST">
+ {{form_start(form)}}
+  {{form_end(form)}}
+
+ </form>
+{% endblock %}
+{% block footer %}
+{% endblock %}

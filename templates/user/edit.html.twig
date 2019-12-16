@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SecuriteController!{% endblock %}
+
+{% block body %}
+<section class="checkout_area padding_top">
+    <div class="container">
+<div class="billing_details">
+        <div class="row">
+          <div class="col-lg-8">
+            <h3>Update Your  Account </h3>
+            <form class="row contact_form"  method="post" >
+            {{form_start(form)}}
+              <div class="col-md-6 form-group p_star">
+                {{ form_row(form.nom) }}
+               </div>
+              <div class="col-md-6 form-group p_star">
+                                {{ form_row(form.prenom) }}
+
+              </div>
+              <div class="col-md-12 form-group">
+                {{ form_row(form.email) }}
+              </div>
+           
+        
+              <div class="col-md-12 form-group p_star">
+                                  {{ form_row(form.adress) }}
+
+              </div>
+              <div class="col-md-12 form-group p_star">
+                                               {{ form_row(form.num_tel) }}
+
+              </div>
+                 <div class="col-md-6 form-group p_star">
+                {{ form_row(form.password) }}
+              </div>
+              <div class="col-md-6 form-group p_star">
+                           {{ form_row(form.confirm_password) }}
+
+              </div>
+               <div class="col-md-3 form-group p_star">
+                                               {{ form_row(form.Create) }}
+
+              </div>
+              
+
+            {{form_end(form)}}
+            </form>
+          </div>
+          
+        </div>
+      </div>
+      </div>
+      </section>
+{% endblock %}

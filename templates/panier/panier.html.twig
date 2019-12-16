@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SecuriteController!{% endblock %}
+
+{% block body %}
+  <!--================Cart Area =================-->
+  <section class="cart_area padding_top">
+    <div class="container">
+      <div class="cart_inner">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                 <th scope="col">Article</th>
+                <th scope="col" >Edition</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Quantite</th>
+                <th scope="col">Total</th>
+                                <th scope="col"></th>
+
+              </tr>
+            </thead>
+
+            <tbody>
+                       {% for achat in achats %}
+
+              <tr>
+                <td>
+                  <div class="media">
+                 
+                    <div class="media-body">
+                      <p>{{achat.edition.article.getTitre()}}</p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <h5>{{achat.edition.getNumEdition()}}</h5>
+                </td>
+                <td>
+                    <h5>{{achat.edition.getPrix()}}</h5>
+
+                </td>
+                   <td>
+                    <h5>{{achat.quantite}}</h5>
+
+                </td>
+                <td>
+                  <h5>{{achat.quantite * achat.edition.getPrix() }}</h5>
+                </td>
+                   <td>
+                   <a href=" {{path('app_panier_supprimer' ,{ 'id_edition' : achat.edition.id})}} "><button type="submit" class=" btn btn-danger">delete </button> </a>
+               </td>
+              </tr>
+                {% endfor %}
+                   <tr>
+                <td></td>
+                <td></td>
+          
+                <td></td>
+                <td>
+                  <h5>total</h5>
+                </td>
+                <td>
+                  <h5>{{total}}</h5>
+                </td>
+              </tr>
+             
+        
+            
+       
+            </tbody>
+          </table>
+          <div class="checkout_btn_inner float-right">
+            <a class="btn_1" href="#">Continue Shopping</a>
+            <a class="btn_1 checkout_btn_1" href="{{path('app_confirmer_panier') }}"> Validate your Cart </a>
+          </div>
+        </div>
+      </div>
+  </section>
+{% endblock %}

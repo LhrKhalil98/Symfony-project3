@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SecuriteController!{% endblock %}
+
+{% block body %}
+	<section class="breadcrumb breadcrumb_bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="breadcrumb_iner text-center">
+						<div class="breadcrumb_iner_item">
+							<h2>  {{ app.user.prenom}}   {{ app.user.nom}}</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+  
+     </div>
+    <section class="static about-sec">
+        <div class="container">
+            <h1>Personal Information </h1>
+    <table class="table">
+        <tbody>
+             <tr>
+                <th>Nom</th>
+                <td>{{ user.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ user.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Adress email  </th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Adress </th>
+                <td>{{ user.adress }}</td>
+            </tr>
+            <tr>
+                <th>Phone number  </th>
+                <td>{{ user.getNumTel()}}</td>
+            </tr>
+          
+        </tbody>
+    </table>
+         
+
+</a>
+        </div>
+    </section>
+{% endblock %}
